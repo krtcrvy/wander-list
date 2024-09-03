@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-const Form = () => {
+const Form = ({ onAddItem }) => {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
 
@@ -16,6 +16,8 @@ const Form = () => {
 
     const newItem = { description, quantity, packed: false, id: uuidv4() };
     console.log(newItem);
+
+    onAddItem(newItem);
 
     setDescription("");
     setQuantity(1);
